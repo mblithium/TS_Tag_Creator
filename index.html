@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json" />
+    <title>TS Tag Creator</title>
+    <script src="./public/scripts/script.js" defer></script>
+    <link rel="stylesheet" href="./public/styles/styles.css">
+    <link rel="shortcut icon" href="./public/img/tstagcreator.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>TS Tag Creator</h1>
+    </header>
+    <main>
+        <div id="viewer">
+            <video src="#" type="video/mp4" controls></video>
+        </div>
+        <form id="fileselect">
+            <label for="video">Choose file</label> <br>
+            <input type="file" id="video" name="video" accept="video/*">
+        </form>
+    
+        <button id="createTimestamp" class="timestampBtnStyles" title="Create timestamp">Add</button>
+        <button id="clearTimestamp" class="timestampBtnStyles">Clear</button>
+        <button class="timestampBtnStyles" title="Not implemented yet.">Save</button>
+        <button class="timestampBtnStyles" title="Not implemented yet.">Load</button>
+        <h2>Timestamps</h2>
+        <div id="timestamps"></div>
+    </main>
+    <footer>
+        <p><strong>TS Tag Creator (Beta)</strong> - developer by: <a href="https://github.com/mblithium" target="_blank">Matheus Bastos</a></p> 
+        <p>Save timestamps to use in software that requires this type of file.</p>
+        <a href="https://github.com/mblithium/TS_Tag_Creator" target="_blank">Github</a> 
+    </footer>
+</body>
+</html>

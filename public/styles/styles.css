@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #778beb;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: slateblue;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px;
+    display: none;
+}
+
+main {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+
+#viewer video {
+    max-height: 50vh;
+    min-height: 300px;
+    max-width: 100%;
+    width: 500px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+}
+
+#timestamps {
+    min-height: 50px;
+}
+
+#timestamps span {
+    display: inline-block;
+    background-color: beige;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+form#fileselect {
+    color: white
+}
+
+form#fileselect input[type="file"] {
+    display: none;
+}
+
+form#fileselect label {
+    display: block;
+    padding: 20px 20px;
+    width: 200px;
+    background-color: #5A6BBC;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+h2 {
+    background-color: #5c6dc0;
+    padding: 20px;
+    margin: 10px 0;
+    text-transform: uppercase;
+    color: #fefefe;
+}
+
+
+.timestampBtnStyles {
+    width: 90px;
+    height: 30px;
+    border: none;
+    background-color: #a3b2ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: small;
+}
+
+footer {
+    display: block;
+    background-color: #5c6dc0;
+    text-align: center;
+    padding: 20px 0;
+    color: #fefefe;
+}
+
+footer a:link {
+    color: #fefefe;
+    text-decoration: underline;
+}
+
+footer a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#timestamps span.tspStart {
+    background-color: #fdfdd1;
+    border-bottom: 5px solid greenyellow;
+}
+
+#timestamps span.tspEnd {
+    background-color: #fdfdd1;
+    border-bottom: 5px solid #e77f67;
+}

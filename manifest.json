@@ -1,0 +1,14 @@
+{
+    "name": "Ts Tag Creator",
+    "short_name": "TSmaker",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#778BEB",
+    "description": "Save timestamps to use in software that requires this type of file.",
+    "icons": [{
+        "src": "./public/img/tstagcreator.svg",
+        "sizes": "48x48 72x72 128x128 512x512",
+        "type": "image/svg"
+      }]
+}
+  
