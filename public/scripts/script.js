@@ -43,8 +43,6 @@ function saveTimestamps() {
     
 }
 
-// TODO: Arrumar evento de clear não funcionando.
-
 function clearTimestamps() {
     timestamps_Data.timestamps = [];
     renderTimestamps();

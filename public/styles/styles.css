@@ -58,10 +58,11 @@ form#fileselect label {
     display: block;
     padding: 20px 20px;
     width: 200px;
+    min-width: 100px;
     background-color: #5A6BBC;
     text-align: center;
     text-transform: uppercase;
-    margin: 10px;
+    margin: 10px auto;
     cursor: pointer;
 }
 
@@ -83,6 +84,7 @@ h2 {
     border-radius: 10px;
     cursor: pointer;
     font-size: small;
+    margin: 5px 0;
 }
 
 footer {
@@ -91,6 +93,11 @@ footer {
     text-align: center;
     padding: 20px 0;
     color: #fefefe;
+}
+
+.notImplemented {
+    filter: grayscale();
+    opacity: 0.2;
 }
 
 footer a:link {
