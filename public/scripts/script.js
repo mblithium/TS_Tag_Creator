@@ -4,6 +4,7 @@ const clearTmpbtn = document.querySelector("#clearTimestamp");
 const viewer = document.querySelector("#viewer");
 const videosource = document.createElement("video");
 const timestampsArea = document.querySelector("#timestamps");
+const saveFileBtn = document.querySelector("#saveFilebtn");
 
 let timestamps_Data = {};
 
@@ -38,9 +39,19 @@ function createVideoBlobURL(blob) {
     return url;
 }
 
-function saveTimestamps() {
-    // TODO: Faz o download dos timestamps para um arquivo de text.
-    
+saveFileBtn.addEventListener("mousedown", (e) => {
+    let dataToString = JSON.stringify(timestamps_Data);
+    saveTimestamps("json", dataToString)
+});
+
+function saveTimestamps(type, data) {
+    let blobObj = new Blob([data], {type: 'octet/stream'});
+    let blobURL = window.URL.createObjectURL(blobObj);
+
+    let simulatedLink = document.createElement("a")
+    simulatedLink.href = blobURL;
+    simulatedLink.download = "tstagdata.json";
+    simulatedLink.click();
 }
 
 function clearTimestamps() {
