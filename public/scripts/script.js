@@ -5,11 +5,22 @@ const viewer = document.querySelector("#viewer");
 const videosource = document.createElement("video");
 const timestampsArea = document.querySelector("#timestamps");
 const saveFileBtn = document.querySelector("#saveFilebtn");
+const videoInfoArea = document.querySelector("#videoinfo");
+const loadFileBtn = document.querySelector("#loadFileBtn");
 
 let timestamps_Data = {};
 
 
 URL = window.URL || window.webkitURL;
+
+function createVideoBlobURL(blob) { return URL.createObjectURL(blob); }
+
+function clearTimestamps() {
+    timestamps_Data.timestamps = [];
+    renderTimestamps();
+}
+
+clearTmpbtn.addEventListener("click", (e) => { clearTimestamps(); });
 
 videobtn.addEventListener("change", (e) => {
     let ev_file = e.target.files[0];
@@ -34,12 +45,8 @@ function changeVideoView(url) {
     viewer.append(videosource);
 }
 
-function createVideoBlobURL(blob) {
-    let url = URL.createObjectURL(blob);
-    return url;
-}
 
-saveFileBtn.addEventListener("mousedown", (e) => {
+saveFileBtn.addEventListener("click", (e) => {
     let dataToString = JSON.stringify(timestamps_Data);
     saveTimestamps("json", dataToString)
 });
@@ -54,42 +61,54 @@ function saveTimestamps(type, data) {
     simulatedLink.click();
 }
 
-function clearTimestamps() {
-    timestamps_Data.timestamps = [];
+loadFileBtn.addEventListener("change", (e) => {
+    loadTimestamps(e);
     renderTimestamps();
+})
+
+function loadTimestamps(data) {
+    if (data.target.files[0]) {
+        let reader = new FileReader();
+        reader.readAsText(data.target.files[0]);
+        reader.onload = () => {
+            timestamps_Data = JSON.parse(reader.result);
+            console.log("Loaded timestamp_Data: ", timestamps_Data);
+            renderTimestamps();
+        }
+    }
 }
 
-clearTmpbtn.addEventListener("click", (e) => { clearTimestamps(); });
-
 function renderTimestamps() {
+
     timestampsArea.innerHTML = "";
 
-    for (i in timestamps_Data.timestamps) {
-        let span = document.createElement("span");
-        span.innerHTML = timestamps_Data.timestamps[i];
-
-        if (i % 2 == 0) { 
-            span.className = "tspStart"; 
-            span.title = "start time";
-        } 
-        else { 
-            span.className = "tspEnd";
-            span.title = "end time"; 
-        }
-
-        timestampsArea.appendChild(span);
-    }
-
-    let spanref = document.querySelectorAll("#timestamps > span");
-
-    if (spanref.length > 0) {
-        spanref.forEach(element => {
-            element.addEventListener("click", (e) => { 
-                handleVideo("currentTime", e.target.innerHTML);
-            });
-        });
-    };
+    if (timestamps_Data.length != 0) {
+        for (i in timestamps_Data.timestamps) {
+            let span = document.createElement("span");
+            span.innerHTML = timestamps_Data.timestamps[i];
     
+            if (i % 2 == 0) { 
+                span.className = "tspStart"; 
+                span.title = "start time";
+            } 
+            else { 
+                span.className = "tspEnd";
+                span.title = "end time"; 
+            }
+    
+            timestampsArea.appendChild(span);
+        }
+    
+        let spanref = document.querySelectorAll("#timestamps > span");
+    
+        if (spanref.length > 0) {
+            spanref.forEach(element => {
+                element.addEventListener("click", (e) => { 
+                    handleVideo("currentTime", e.target.innerHTML);
+                });
+            });
+        };
+    }
 }
 
 function handleVideo(option, value) {

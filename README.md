@@ -2,7 +2,7 @@
 
 A tool to create timestamps, where it saves in a json file or another format. Timestamps consist of start time and end time.
 
-It's still in development and a lot can change.
+It's just a prototype still in development and a lot can change. 
 
 # How to use
 

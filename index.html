@@ -21,16 +21,26 @@
             <video src="#" type="video/mp4" controls></video>
         </div>
         <form id="fileselect">
-            <label for="video">Choose file</label> <br>
+            <label for="video">Choose file</label>
             <input type="file" id="video" name="video" accept="video/*">
         </form>
-    
-        <button id="createTimestamp" class="timestampBtnStyles" title="Create timestamp">Add</button>
-        <button id="clearTimestamp" class="timestampBtnStyles">Clear</button>
-        <button id="saveFilebtn" class="timestampBtnStyles" title="Not implemented yet.">Save</button>
-        <button class="timestampBtnStyles notImplemented" title="Not implemented yet.">Load</button>
+        
+        <div id="actionArea">
+            <button id="createTimestamp" class="timestampBtnStyles" title="Create timestamp">Add</button>
+
+            <button id="clearTimestamp" class="timestampBtnStyles">Clear</button>
+
+            <button id="saveFilebtn" class="timestampBtnStyles" title="Save to file">Save</button>
+
+            <label for="loadFileBtn" class="timestampBtnStyles">Load</label>
+            <input id="loadFileBtn" name="loadTimestampFile" type="file" accept="application/json"></input>
+        </div>
+
         <h2>Timestamps</h2>
         <div id="timestamps"></div>
+
+        <h2>Video Info</h2>
+        <div id="videoinfo"></div>
     </main>
     <footer>
         <p><strong>TS Tag Creator (Beta)</strong> - developer by: <a href="https://github.com/mblithium" target="_blank">Matheus Bastos</a></p> 
